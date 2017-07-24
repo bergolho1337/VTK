@@ -36,7 +36,7 @@ struct Line;
 
 void Usage (const char pName[]);
 void readInputVTP (std::vector<Point> &Points, std::vector<Line> &Lines, const char inFile[]);
-void processData (const std::vector<Point> Points, const std::vector<Line> Lines,std::vector< vector< pair<int,int> > > Graph);
+void processData (const std::vector<Point> Points, const std::vector<Line> Lines,std::vector< vector< pair<int,int> > > Graph, const char outFile[]);
 void buildGraph (std::vector< vector< pair<int,int> > > &Graph, const std::vector<Point> Points, const std::vector<Line> Lines);
 void createCylinder (vtkSmartPointer<vtkAppendPolyData> &appendFilter, const std::vector<Point> points, const Line line);
 void createSphere (vtkSmartPointer<vtkAppendPolyData> &appendFilter, Point point);
@@ -59,7 +59,7 @@ struct Line
 
 int main (int argc, char *argv[])
 {
-    if (argc-1 < 1)
+    if (argc-1 < 2)
     {
         Usage(argv[0]);
         exit(EXIT_FAILURE);
@@ -78,7 +78,7 @@ int main (int argc, char *argv[])
 
         buildGraph(Graph,Points,Lines);
 
-        processData(Points,Lines,Graph);
+        processData(Points,Lines,Graph,argv[2]);
 
         return 0;
 
@@ -133,7 +133,7 @@ void readInputVTP (std::vector<Point> &Points, std::vector<Line> &Lines, const c
 }
 
 void processData (const std::vector<Point> Points, const std::vector<Line> Lines, \
-                    const std::vector< vector< pair<int,int> > > Graph)
+                    const std::vector< vector< pair<int,int> > > Graph, const char outFile[])
 {
     int NumPoints = (int)Points.size();
     int NumLines = (int)Lines.size();
@@ -154,7 +154,7 @@ void processData (const std::vector<Point> Points, const std::vector<Line> Lines
     // Write the file
     vtkSmartPointer<vtkXMLPolyDataWriter> writer =  
         vtkSmartPointer<vtkXMLPolyDataWriter>::New();
-    writer->SetFileName("output.vtp");
+    writer->SetFileName(outFile);
     writer->SetInputConnection(appendFilter->GetOutputPort());
     writer->Write();
   
@@ -165,7 +165,7 @@ void createSphere (vtkSmartPointer<vtkAppendPolyData> &appendFilter, Point point
     vtkSmartPointer<vtkSphereSource> sphereSource = 
         vtkSmartPointer<vtkSphereSource>::New();
     sphereSource->SetCenter(point.x,point.y,point.z);
-    sphereSource->SetRadius(1.0);
+    sphereSource->SetRadius(0.75);
     sphereSource->SetThetaResolution(15.0);
     sphereSource->SetPhiResolution(15.0);
     sphereSource->Update();
@@ -307,6 +307,6 @@ void printVTP (const std::vector<Point> Points, const std::vector<Line> Lines)
 void Usage (const char pName[])
 {
     cout << "=======================================================" << endl;
-    cout << "Usage:> " << pName << " <vtp_file>" << endl;
+    cout << "Usage:> " << pName << " <in_vtp_file> <out_vtp_file>" << endl;
     cout << "=======================================================" << endl;
 }

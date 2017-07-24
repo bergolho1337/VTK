@@ -1,12 +1,31 @@
-#include <vtkCylinderSource.h>
-#include <vtkPolyData.h>
-#include <vtkSmartPointer.h>
 #include <vtkPolyDataMapper.h>
 #include <vtkActor.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderer.h>
 #include <vtkRenderWindowInteractor.h>
- 
+#include "vtkCellArray.h"
+#include "vtkPoints.h"
+#include "vtkPointData.h"
+#include "vtkXMLPolyDataReader.h"
+#include "vtkPolyData.h"
+#include <vtkVersion.h>
+#include <vtkCellArray.h>
+#include <vtkPoints.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkPolyData.h>
+#include <vtkActor.h>
+#include <vtkSmartPointer.h>
+#include <vtkSphereSource.h>
+#include <vtkAppendPolyData.h>
+#include <vtkFloatArray.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkCylinderSource.h>
+#include <vtkMath.h>
+#include <vtkSphereSource.h>
+#include <vtkProperty.h>
+#include <vtkTransform.h>
+#include <vtkTransformPolyDataFilter.h>
+
 int main(int, char *argv[])
 {
   // Create a sphere
@@ -16,6 +35,17 @@ int main(int, char *argv[])
   cylinderSource->SetRadius(5.0);
   cylinderSource->SetHeight(7.0);
   cylinderSource->SetResolution(100);
+  cylinderSource->Update();
+
+  // Color the points of the cylinder with the same scalar of the first point
+  int numPtsCylinder = cylinderSource->GetOutput()->GetPoints()->GetNumberOfPoints();
+  vtkSmartPointer<vtkFloatArray> scalars =
+      vtkSmartPointer<vtkFloatArray>::New();
+  scalars->SetNumberOfValues( numPtsCylinder );
+  for( int j = 0; j < numPtsCylinder; j++ )
+      scalars->SetValue(j,j*0.0025);
+  cylinderSource->GetOutput()->GetPointData()->SetScalars(scalars);
+  cylinderSource->Update();
  
   // Create a mapper and actor
   vtkSmartPointer<vtkPolyDataMapper> mapper =
