@@ -165,7 +165,7 @@ void createSphere (vtkSmartPointer<vtkAppendPolyData> &appendFilter, Point point
     vtkSmartPointer<vtkSphereSource> sphereSource = 
         vtkSmartPointer<vtkSphereSource>::New();
     sphereSource->SetCenter(point.x,point.y,point.z);
-    sphereSource->SetRadius(0.75);
+    sphereSource->SetRadius(0.15);
     sphereSource->SetThetaResolution(15.0);
     sphereSource->SetPhiResolution(15.0);
     sphereSource->Update();
@@ -193,6 +193,7 @@ void createCylinder (vtkSmartPointer<vtkAppendPolyData> &appendFilter, const std
     // Cylinder center is in the middle of the cylinder
     vtkSmartPointer<vtkCylinderSource> cylinderSource =
         vtkSmartPointer<vtkCylinderSource>::New();
+    cylinderSource->SetRadius(0.1);
     cylinderSource->SetResolution(15);
     cylinderSource->Update();
 
