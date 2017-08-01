@@ -74,7 +74,7 @@ int main (int argc, char *argv[])
         std::vector< vector< pair<int,int> > > Graph;
 
         readInputVTP(Points,Lines,argv[1]);
-        //printVTP(Points,Lines);
+        printVTP(Points,Lines);
 
         buildGraph(Graph,Points,Lines);
 
@@ -107,7 +107,9 @@ void readInputVTP (std::vector<Point> &Points, std::vector<Line> &Lines, const c
     for(vtkIdType i = 0; i < NumPoints; i++)
     {
         polydata->GetPoint(i, point);
-        w = polydata->GetPointData()->GetScalars()->GetComponent(0,i);
+        // Caso o ponto possua escalar descomentar
+        //w = polydata->GetPointData()->GetScalars()->GetComponent(0,i);
+        w = 1;
         Points.push_back(Point(point[0], point[1], point[2],w)); 
     }
     
