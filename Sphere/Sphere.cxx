@@ -8,6 +8,7 @@
 #include <vtkDoubleArray.h>
 #include <vtkAppendPolyData.h>
 #include <vtkSphereSource.h>
+#include <vtkXMLUnstructuredGridWriter.h>
 
 int main ()
 {
@@ -18,8 +19,8 @@ int main ()
     sphereSource->SetPhiResolution(15.0);
     sphereSource->Update();
 
-    vtkSmartPointer<vtkXMLPolyDataWriter> writer = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
-    writer->SetFileName("output/sphere.vtp");
+    vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
+    writer->SetFileName("output/sphere.vtu");
     writer->SetInputConnection(sphereSource->GetOutputPort());
     writer->Write();
 }
