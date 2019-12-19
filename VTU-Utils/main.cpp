@@ -21,6 +21,7 @@
 #include <vtkAppendPolyData.h>
 #include <vtkFloatArray.h>
 #include <vtkCellData.h>
+#include <vtkLine.h>
 
 using namespace std;
 
@@ -201,6 +202,7 @@ int main (int argc, char *argv[])
   // READER
   vtkSmartPointer<vtkXMLUnstructuredGridReader> reader = vtkSmartPointer<vtkXMLUnstructuredGridReader>::New();
   reader->SetFileName("outputs/dataset_1.vtu");
+  //reader->SetFileName("inputs/apd-map.vtu");
   reader->Update();
 
   vtkUnstructuredGrid *unstructured_grid_2 = reader->GetOutput();
@@ -216,7 +218,7 @@ int main (int argc, char *argv[])
   {
     cout << "Cell " << i << endl;
 
-    vtkCell *cell = unstructured_grid->GetCell(i);
+    vtkCell *cell = unstructured_grid_2->GetCell(i);
 
     vtkHexahedron *hexahedron = dynamic_cast<vtkHexahedron*>(cell);
 
@@ -248,5 +250,32 @@ int main (int argc, char *argv[])
   }
 
   return 0;
+
+// Test 2
+/*
+  vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
+  points->InsertNextPoint(0,0,0);
+  points->InsertNextPoint(1,0,0);
+
+  vtkSmartPointer<vtkLine> line_1  = vtkSmartPointer<vtkLine>::New();
+  line_1->GetPointIds()->SetId(0,0);
+  line_1->GetPointIds()->SetId(1,1);
+
+  vtkSmartPointer<vtkCellArray> cell_array = vtkSmartPointer<vtkCellArray>::New();
+  cell_array->InsertNextCell(line_1);
+
+  vtkSmartPointer<vtkFloatArray> values_dataset_1 = vtkSmartPointer<vtkFloatArray>::New();
+  values_dataset_1->InsertNextValue(10);
+
+  vtkSmartPointer<vtkUnstructuredGrid> unstructured_grid = vtkSmartPointer<vtkUnstructuredGrid>::New();
+  unstructured_grid->SetPoints(points);
+  unstructured_grid->SetCells(VTK_LINE,cell_array);
+  unstructured_grid->GetCellData()->SetScalars(values_dataset_1);  
+
+  vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
+  writer->SetFileName("outputs/line.vtu");
+  writer->SetInputData(unstructured_grid);
+  writer->Write();  
+*/
 
 }
