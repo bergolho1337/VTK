@@ -54,11 +54,13 @@ int main(int, char *argv[])
   // Get the reference to the Polydata
   vtkPolyData *polydata = mapper->GetInput();	
 
+  // Write in VTK
   vtkSmartPointer<vtkPolyDataWriter> writer = vtkSmartPointer<vtkPolyDataWriter>::New();
   writer->SetFileName("outputs/quadratic.vtk");
   writer->SetInputData(polydata);
   writer->Write();
 
+  // Write in STL
   vtkSmartPointer<vtkSTLWriter> stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
   stlWriter->SetFileName("outputs/quadratic.stl");
   stlWriter->SetInputData(polydata);
