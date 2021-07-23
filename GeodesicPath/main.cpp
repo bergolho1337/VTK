@@ -1,9 +1,11 @@
 #include <vtkXMLPolyDataReader.h>
+#include <vtkXMLUnstructuredGridReader.h>
 #include <vtkSTLReader.h>
 #include <vtkPolyDataMapper.h>
 #include <vtkSphereSource.h>
 #include <vtkProperty.h>
 #include <vtkPolyData.h>
+#include <vtkUnstructuredGrid.h>
 #include <vtkIdList.h>
 #include <vtkSmartPointer.h>
 #include <vtkPolyDataMapper.h>
@@ -30,6 +32,7 @@ int main (int argc, char **argv)
 
   vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
   vtkPolyData* polydata_grid;
+  vtkUnstructuredGrid *unstructured_grid;
 
   if (extension == "stl")
   {
@@ -54,6 +57,14 @@ int main (int argc, char **argv)
     polydata_grid = mapper->GetInput();
 
   }
+  else if (extension == "vtu")
+  {
+    vtkSmartPointer<vtkXMLUnstructuredGridReader> reader = vtkSmartPointer<vtkXMLUnstructuredGridReader>::New();
+    reader->SetFileName(filename.c_str());
+    reader->Update();
+
+    unstructured_grid = reader->GetOutput();
+  }
   else
   {
     fprintf(stderr,"[-] ERROR! Invalid file format '%s'! Only 'stl' and 'vtp' format are acceptable!\n",extension.c_str());
@@ -61,7 +72,11 @@ int main (int argc, char **argv)
   }
 
   vtkSmartPointer<vtkDijkstraGraphGeodesicPath> dijkstra = vtkSmartPointer<vtkDijkstraGraphGeodesicPath>::New();
-  dijkstra->SetInputData(polydata_grid);
+  if (extension == "vtk" || extension == "vtp")
+    dijkstra->SetInputData(polydata_grid);
+  else if (extension == "vtu")
+    dijkstra->SetInputData(unstructured_grid);
+
   dijkstra->SetStartVertex(source);
   dijkstra->SetEndVertex(target);
   dijkstra->Update();
@@ -79,7 +94,6 @@ int main (int argc, char **argv)
     polydata_grid->GetPoint(id,pos);
     printf("%u - (%g %g %g)\n",id,pos[0],pos[1],pos[2]);
   }
-
 
 /*
   // VISUALIZATION  
