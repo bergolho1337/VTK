@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="40"                   NumberOfCells="39"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.019919444528"       RangeMax="0.03167686215"        offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="520"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="660"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="804"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAADgAQAAcwEAAA==eJwTkQ20/j/16h5hrok2j8/Nsk7ZdHmPMlOLzcHPe613GVzas1E23Uao57/1f/tze57+CLfR/iFgI9B2eo+GrrmNXY+pjVHb4T0/56rZ6K3zscm7tG+PvSuTzQyFSJuIe7v2PJ9+zVrTON9Gr2bznmSJJdZc0bU2vnHr9hzyZLQunttm43l2xR4GICi41WRT3z8VzE6P7bBR92oCs2+d6raZeCoOzHZNmGgT/98ezGZc1mOjI6gBZmuzTrZxn8ULZnenzLT56PZsN4i91meuzeula8FsFtOFNqc4s8Bs9rZFQParXSA21/XFNgxQABW3QlJvjWSONZL51kj22iC5B8xmY2mxmX7FHswWP1JmwzQjHMyW6Uy0CX2SDWYr+fnYhEg0gNlzTxnbrNfvALN/uknbXHWbAGbPc2GwqeGZBmbP7PhorcuxFMy+xHXI2pFjLZgdkNBrPfXYTjB7ipuQ9WqBo2C2HOMsK+72K2A2AFrNmNY=AQAAAACAAABwAgAAVQAAAA==eJxdxckCgVAAAMAXkr1CmyJR+f8/dOA0c5kQfiJe8JJXHPOaE97wlne85wMf+cQpZ5zzmS985YJLrrjmhm/ccsd3fnDPTx74xW8eeeKZP/+/7gwF8g==AQAAAACAAAA4AQAAWAAAAA==eJwtxdEGgwAAAMAkM5PJzGQyM5lJMslkkmQmM/3/5/TQ3cuFwSryxlvvHHvvxAcffXLqszNffPXNue9+uHDpyk/Xbvxy67c79x48+uOvJ//89+wFm5YGGQ==AQAAAACAAAAnAAAADAAAAA==eJxjZiYKAAAJSwB2
+  </AppendedData>
+</VTKFile>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="35"                   NumberOfCells="34"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.025969892825"       RangeMax="0.0374789883"         offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="600"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="728"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="856"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAACkAQAArwEAAA==eJwBpAFb/mdHpjv4ZsC8LKDrPPe45zsYdr28x4zmPOZ2Ejwh87e8/QrjPImpHzwhvbK8eFHqPIYmPzxpLKu8+OjoPHCwXDxwAKK8eHrlPD3bfjw2zZa8zmbfPDBGiTw+Yo+8LW/YPL6OkzyTvIS8+ZjZPGU4njxdo2W8tdbhPFIhqDzG20q8U9XfPPLpsTxrcy28xHzUPPequjw/eRC80nPLPBT8wDy2dNi7RdTEPDR7xTzO8I+7JCzFPNL+xzwIEgi7CaO+PEkWyzy+tjY69VywPEBmzDxouzY7SVSePOpVyTyndbw7Jw2aPO+qxzzlj/U7kkGJPJy+wzwvoxo8xyCBPNyUvDwArj88DcxlPGYCtDyUmmI8a5dbPL4rpzxC5YQ8Y15HPBfCoDxHFY882+ooPNT9kjymHJ08BDgePPczhjyWdqo8UKD4O/QrZzwcLLc8oODiOz3vRjyY8cA87wvgO+z2HTya2sg8AAHKO0O2BTydrc08pEOSO8Si2DvvA9A8EboVOz2GnjvUntI8WhSwOjtZZjsQkNQ8AAAAAB4BmjoLh9Q8AAAAANPpxbw=AQAAAACAAAAgAgAATQAAAA==eJxdxUkCQgAAAECisoTKUrKE/z/SgdPMZYLgEPKFI475yje+c8IpZ5zzgwsuueInv/jNNTfccscf/nLPPx545Iln/vPCK2/nO0cFBIU=AQAAAACAAAAQAQAATgAAAA==eJwtxdEGgwAAAMAkk2RmJkkySTKTJMkkmf7/m3ro7uXC4BL55tiJU9/98NMvZ85duHTlt2s3bt354697Dx49efbin1dv3v334RO/XwSnAQAAAACAAAAiAAAACwAAAA==eJxjZiYEAAcbAGc=
+  </AppendedData>
+</VTKFile>

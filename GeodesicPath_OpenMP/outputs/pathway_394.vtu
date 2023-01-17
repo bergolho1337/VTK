@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="34"                   NumberOfCells="33"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.025969892825"       RangeMax="0.045195265073"       offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="584"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="708"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="836"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAACYAQAAowEAAA==eJwBmAFn/nLlR7zOQYa8jx8lPYWbZ7wssXy8NgAgPcd7erwAqGK8ihwiPcsziryQ1VK89ZMbPTcclrwpJzW8WhgYPfFiobwQMAa8OM4XPVSnqLzqtdW7QwoUPbXLrbyHeqy7elAQPQV9s7xhV267Mn0KPQLRuLyrTwO721gEPfsFu7wRk643Fx3/PHV6ubxkykk7yPr8PIFruLyoDZw7MeD2PM7UtbwqMOw7d1TrPH4Htbxkng08VvDbPB4KsLyaIys8e7PXPMHeqbySn0M83sfRPKDQobxbnmI8e7vKPBvJlLwdv4E8yB7GPPWlkryEWIc8LZi4PCffh7wqqZM89Q2xPAOserxxKZ08z5SnPJXtaLxFT6U8xaCdPMI1UryW6608k7eSPMP9Nrx7erY8wPqJPM4bJ7znHLw8WUd6PO+BCLysXMM8IvpaPALX17uHTck87KhFPGgGr7uEP808BbUpPM74gLvZ8M88Yb8IPEByBLuUI9M8+BbaO7u7DLp4odQ8zqWbO5OvJjnSl9Q8wsAUOx4BmjoLh9Q8AAAAANuUxSY=AQAAAACAAAAQAgAASwAAAA==eJxdxckCQlAAAMAnFZJ9LQr//5Mdcpq5TAh/EV845ivf+M4Jp5zxg3N+csElV1xzwy133PPAI08884vfvPDKH/7yxjsf5z//tgRCAQAAAACAAAAIAQAATAAAAA==eJwtxdEGgwAAAMDJzCRJJkmSZJIkSZJJ9v8f1UN3Lxc8bk+//HboyLETp/44c+7CpSvXbtz66869B4+ePHvx6s27fz58+u8LmicEYw==AQAAAACAAAAhAAAACwAAAA==eJxjZiYAAAa0AGQ=
+  </AppendedData>
+</VTKFile>

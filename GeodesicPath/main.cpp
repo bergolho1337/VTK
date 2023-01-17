@@ -14,6 +14,23 @@
 #include <vtkRenderer.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkDijkstraGraphGeodesicPath.h>
+#include <vtkXMLUnstructuredGridWriter.h>
+#include <vtkLine.h>
+
+class Point
+{
+public:
+  double pos[3];
+public:
+  Point (const double p[])
+  {
+    memcpy(this->pos,p,sizeof(double)*3);
+  }
+  void print ()
+  {
+    printf("pos=[%g %g %g]\n",pos[0],pos[1],pos[2]);
+  }
+};
 
 int main (int argc, char **argv)
 { 
@@ -37,7 +54,7 @@ int main (int argc, char **argv)
   if (extension == "stl")
   {
     vtkSmartPointer<vtkSTLReader> reader = vtkSmartPointer<vtkSTLReader>::New();
-    reader->SetFileName("inputs/cadim_full_mesh_cardiax.stl");
+    reader->SetFileName(filename.c_str());
     reader->Update();
 
     mapper->SetInputConnection(reader->GetOutputPort());
@@ -72,7 +89,7 @@ int main (int argc, char **argv)
   }
 
   vtkSmartPointer<vtkDijkstraGraphGeodesicPath> dijkstra = vtkSmartPointer<vtkDijkstraGraphGeodesicPath>::New();
-  if (extension == "vtk" || extension == "vtp")
+  if (extension == "stl" || extension == "vtp")
     dijkstra->SetInputData(polydata_grid);
   else if (extension == "vtu")
     dijkstra->SetInputData(unstructured_grid);
@@ -82,52 +99,34 @@ int main (int argc, char **argv)
   dijkstra->Update();
 
   // Get the ids of the path
-  printf("Geodesic path from point '%u' to '%u'\n",source,target);
+  //printf("Geodesic path from point '%u' to '%u'\n",source,target);
   vtkSmartPointer<vtkIdList> ids = dijkstra->GetIdList();
   uint32_t num_points = ids->GetNumberOfIds();
+  vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
+  vtkSmartPointer<vtkCellArray> cell_array = vtkSmartPointer<vtkCellArray>::New();
   for (uint32_t i = 0; i < num_points; i++)
   {
-    uint32_t id = ids->GetId(i);
-
     double pos[3];
-
+    uint32_t id = ids->GetId(i);
     polydata_grid->GetPoint(id,pos);
-    printf("%u - (%g %g %g)\n",id,pos[0],pos[1],pos[2]);
+    points->InsertNextPoint(pos[0],pos[1],pos[2]);
+
+    if (i < num_points-1)
+    {
+      vtkSmartPointer<vtkLine> line = vtkSmartPointer<vtkLine>::New();
+      line->GetPointIds()->SetId(0,i);
+      line->GetPointIds()->SetId(1,i+1);
+      cell_array->InsertNextCell(line);
+    }
   }
+  vtkSmartPointer<vtkUnstructuredGrid> output_grid = vtkSmartPointer<vtkUnstructuredGrid>::New();
+  output_grid->SetPoints(points);
+  output_grid->SetCells(VTK_LINE,cell_array);
 
-/*
-  // VISUALIZATION  
-  // Create a mapper and actor
-  vtkSmartPointer<vtkPolyDataMapper> pathMapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-  pathMapper->SetInputConnection(dijkstra->GetOutputPort());
+  vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
+  writer->SetFileName("outputs/pathway.vtu");
+  writer->SetInputData(output_grid);
+  writer->Write();
 
-  vtkSmartPointer<vtkActor> pathActor = vtkSmartPointer<vtkActor>::New();
-  pathActor->SetMapper(pathMapper);
-  pathActor->GetProperty()->SetColor(1,0,0); // Red
-  pathActor->GetProperty()->SetLineWidth(4);
-
-  // Create a mapper and actor
-  //vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-  mapper->SetInputData(polydata_grid);
-
-  vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
-  actor->SetMapper(mapper);
-
-  //Create a renderer, render window, and interactor
-  vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
-  vtkSmartPointer<vtkRenderWindow> renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
-  renderWindow->AddRenderer(renderer);
-  vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-  renderWindowInteractor->SetRenderWindow(renderWindow);
-
-  //Add the actor to the scene
-  renderer->AddActor(actor);
-  renderer->AddActor(pathActor);
-  renderer->SetBackground(.3, .6, .3); // Background color green
-
-  //Render and interact
-  renderWindow->Render();
-  renderWindowInteractor->Start();
-*/
   return EXIT_SUCCESS;
 }

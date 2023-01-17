@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="33"                   NumberOfCells="32"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.025969892825"       RangeMax="0.034943811445"       offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="564"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="688"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="812"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAACMAQAAlQEAAA==eJwlxk1Ik2EAwPGGLgVNCyZ4EL9B9GAvrDzs+bt5sPeQlB6UstFFKBzlhNBDdAhR0RjiB1g5odUhpyQbianb+6x0NRuxOUNLFBSKMp0IdQlJBGP+Tr9zcxaiNdMyzRWmcauBV3UeabgTZGynhajOLY2TAb4pPRQlO2Xcp1FyfYh+tV8upfi5P/CMRy0dsqHPR1PEzcUqm4zMz3Jve4rMXlWWK2/wXvCjzy+WZfo5Si4HafWfln8fThA4+Mi/ryGtuPAFBc8jGLxtWsXKU+qVGKp52S8L+rD/jpHd+tgUv9TLh9IlUrELTXVgd0RJ33sproU7SGr+RDg1LkxqM7VJi9hGshm5YuVGzQJdcYX3B9U8Oe8j+bCe9S8Wqjqn+JF3l9DbcmZ+jXOk62baaMCc68I2PojLmMHGn2ECw6P8XN8UNzMdeHfHqMx3CrflAftZr0nZvSr0VivmkEZ7TqFY81gYXA1ya3LFtKCUsfV9kVP/OTx6zsxGE49VvxNtRZ8TF423xdmB1cRzdU5TWs/JjwHyIqjSAQAAAACAAAAAAgAASQAAAA==eJxdxUkCQgAAAECEypole/j/KztwmrlMEFxCjvjBMSec8pNf/OaMcy645Ipr/nDDLXfc85cHHnnimRdeeeMf73zwef8HvJ4EAQ==AQAAAACAAAAAAQAASgAAAA==eJwtxdEGgwAAAMAkSZIkySSZSZKZJJOk//+qHrp7uTB4RI6dOHXm3IVLV67d+OXWnXu//fHg0ZNnf/3z4tWb/959+PTlG3cPBCE=AQAAAACAAAAgAAAACwAAAA==eJxjZsYPAAZQAGE=
+  </AppendedData>
+</VTKFile>

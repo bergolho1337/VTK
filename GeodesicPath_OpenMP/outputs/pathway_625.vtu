@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="41"                   NumberOfCells="40"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.019919444528"       RangeMax="0.034726385272"       offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="624"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="768"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="912"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAADsAQAAwQEAAA==eJwdxk1I03EcB+Bt+bJ0SvOSOlFRmJaKNEHB3ye0kMVEpGDhoUBnUyjxFGaH4UtWTlNZzJfN3KTIYbNtdkic/y+TZiVKYL6sw2AXNS+JKdRBVNT/7zk9Lx6FmbpxkTYfLkBpTIR5JUgdrYRUmxqSNiLJfgDq/ev4XDJLu4pZ7OhrMGb5RNfYNI5rjZBHfHT81IldjQnhyCS5o4ZQ4e1FzJtxanb04Oi3Ff8ybXTV2gLDgBMpwgC5mu7DtfoenTlmKg6U40HEi/nxFnqtzIO7cgZrzwzU3Z6Ox7EC6obvUINJgSX7F7RmFNNp9QVkby0itKKioOc/q1f9gOyjjEwaP9NN/UTu36CQ5Opi2yfr0Kvahdp7WcyXGkL2yxRBcu6dZQnWwK858SV7C3j7od8vvlNDCJ94S8XHrk9Dd1HHxF+56YY04OD3VDnwZ8LD/8pox4F2hz8v2opbowkQL3X1IV+Zyx8T9RwjG2X8l78+gcxWw5/WY8Dd7Sb+rOoq6JM7+B3LRfAVmvkPtSqEtBZ+Z4UEJsUwv918wArkE/xrcUF2Q+7hv13Xz4a++/kHtUls6tI3/nTpaGl89wb/GZ68tTI=AQAAAACAAACAAgAAWAAAAA==eJxdxUkCgQAAAMAsoYUUZSkRLf7/QoecZi4TBLMFL3nFaw55w1veccQxJ5zyng+c8ZFzLvjEZy654gtf+cZ3rrnhB7f85Bd3/OYP9zzwyBN///8AUOsGQQ==AQAAAACAAABAAQAAWgAAAA==eJwtxdEGwgAAAMAkk8lMkklmZmaSZGaSyczMJNn/f00P3b3cevW3ceCtQ+8cOfbeBx+d+OSzU2fOXbh05Yuvvvnu2o1bP/x055d7Dx49efbbH3+9+AfO3gZpAQAAAACAAAAoAAAADAAAAA==eJxjZiYOAAAJxAB5
+  </AppendedData>
+</VTKFile>

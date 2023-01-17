@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+  <UnstructuredGrid>
+    <Piece NumberOfPoints="23"                   NumberOfCells="22"                  >
+      <PointData>
+      </PointData>
+      <CellData>
+      </CellData>
+      <Points>
+        <DataArray type="Float32" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.025969892825"       RangeMax="0.052457729041"       offset="0"                   />
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="408"                 />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="508"                 />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="612"                 />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="base64">
+   _AQAAAACAAAAUAQAAHwEAAA==eJwBFAHr/v7JiDu+vIA8yUhMPWy+gDt8cIg8D/BEPfUCnjtLUI08T5A9PQLLeDuac5U8bdc1PeupVTuSM548H5IrPZj5TDuRfKU8moQhPVGUFTu2J608Bq0WPbjGyjpAQbM84NQMPe4SzTrIdbg8yTEDPXSGHTrqG708wQj1PNAFsTlaCcI8XyjgPPVGIzpC+MY8AprIPMvu0TpKcso8b8KzPGhGQDqpkcw8nRGlPGMLWTrulM48fPmTPMY5VzgVc9A8zCmBPKslOjp04dE8jgdbPNMQ2TrT49I84j84PPa76jrO3dM8+0YNPCOvHDu4e9Q8EtXCO7K57jpnpNQ86Nd3O49oBjslltQ80IP1Oh4BmjoLh9Q8AAAAAHDge1g=AQAAAACAAABgAQAAOQAAAA==eJxdxbcBgCAAADAQe0MF/f9UB52SJSF8IjecuOWOex545IlnXnjljXfOfPDJFxeufPPz/wLmqAHlAQAAAACAAACwAAAAOgAAAA==eJwtxdEGgDAAAMAkM8nMJEkmkyT9//f10N3L9d1vcHD06MnJ2cWzF6/evLv6cPPpy7cfv/4AfzAB+w==AQAAAACAAAAWAAAACwAAAA==eJxjZsYGAAMNAEM=
+  </AppendedData>
+</VTKFile>

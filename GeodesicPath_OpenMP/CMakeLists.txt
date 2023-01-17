@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 2.8)
+
+PROJECT(GeodesicPathOMP)
+
+find_package(VTK REQUIRED)
+include(${VTK_USE_FILE})
+
+FIND_PACKAGE(OpenMP)
+IF (OPENMP_FOUND)
+    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+ENDIF(OPENMP_FOUND)
+
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin )
+
+add_executable(GeodesicPathOMP MACOSX_BUNDLE main.cpp )
+
+target_link_libraries(GeodesicPathOMP ${VTK_LIBRARIES})
